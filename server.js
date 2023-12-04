@@ -34,8 +34,18 @@ app.get('/temperature', (req, res) => {
 })
 
 app.post('/test',(req,res)=>{
-    console.log(req.body)
-    res.send(req.body)
+    const sql = 'insert into temperature(value,time) values(?,?)'
+    var params=[req.body.value,req.body.time]
+    db.query(sql,params, (err, rows) => {
+        if (err) {
+            res.json({result: "error"})
+            return console.log(err)
+        }
+        res.json(rows)
+    })
+    // console.log(req.body.value)
+    // console.log(req.body.time)
+    // res.send(req.body)
 })
 
 app.listen(port, () => {
