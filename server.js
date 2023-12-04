@@ -13,6 +13,8 @@ const db = mysql.createConnection({
 })
 
 db.connect()
+app.use(express.urlencoded({extended: true}))
+app.use(express.json())
 
 app.get('/', (req, res) => {
     res.json({result: "스앱"})
