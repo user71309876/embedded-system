@@ -31,6 +31,11 @@ app.get('/temperature', (req, res) => {
     })
 })
 
+app.post('/test',(req,res)=>{
+    console.log(req.body)
+    res.send(req.body)
+})
+
 app.listen(port, () => {
     console.log(`서버 실행됨 (port ${port})`)
 })
