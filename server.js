@@ -33,13 +33,14 @@ app.get("/warning", (req, res) => {
 app.get("/buzzer", (req, res) => {
   if (result) {
     res.json({ warning: "noise" });
+    result = false;
   } else {
     res.json({ warning: "quiet" });
   }
 });
 
 app.get("/sensor", (req, res) => {
-  const sql = "select * from sensor";
+  const sql = "SELECT * FROM sensor ORDER BY timestamp_column DESC LIMIT 1;";
 
   db.query(sql, (err, rows) => {
     if (err) {
