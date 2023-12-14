@@ -26,6 +26,7 @@ app.get("/warning", (req, res) => {
   if (result == false) {
     result = true;
     res.json({ warning: "Get Ok" });
+    console.log(result);
   }
 });
 
