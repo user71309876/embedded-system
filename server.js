@@ -40,7 +40,7 @@ app.get("/buzzer", (req, res) => {
 });
 
 app.get("/sensor", (req, res) => {
-  const sql = "SELECT * FROM sensor ORDER BY timestamp_column DESC LIMIT 1;";
+  const sql = "select * from sensor";
 
   db.query(sql, (err, rows) => {
     if (err) {
