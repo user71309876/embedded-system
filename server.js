@@ -44,6 +44,7 @@ app.post("/sensor", (req, res) => {
     req.body.gas,
     req.body.nfc,
   ];
+  console.log(params);
   db.query(sql, params, (err, rows, fields) => {
     console.log(rows);
     if (err) {
