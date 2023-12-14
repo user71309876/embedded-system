@@ -37,6 +37,7 @@ app.get("/buzzer", (req, res) => {
   } else {
     res.json({ warning: "quiet" });
   }
+  console.log(result);
 });
 
 app.get("/sensor", (req, res) => {
