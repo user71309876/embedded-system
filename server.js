@@ -51,8 +51,21 @@ app.get("/sensor", (req, res) => {
   });
 });
 
+app.get("/test", (req, res) => {
+  const sql = "SELECT * FROM sensor ORDER BY timestamp_column DESC LIMIT 1;";
+
+  db.query(sql, (err, rows) => {
+    if (err) {
+      res.json({ result: "error" });
+      return console.log(err);
+    }
+    res.json(rows);
+  });
+});
+
 app.post("/sensor", (req, res) => {
-  const sql = "insert into sensor(temperature,water,gas,nfc) values(?,?,?,?)";
+  //   const sql = "insert into sensor(temperature,water,gas,nfc) values(?,?,?,?)";
+  const sql = "update sensor set temperature=?, water=?, gas=?, nfc=?";
   var params = [
     req.body.temperature,
     req.body.water,
