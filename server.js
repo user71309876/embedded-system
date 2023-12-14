@@ -16,9 +16,9 @@ db.connect();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// app.get("/", (req, res) => {
-//   res.json({ result: "스앱" });
-// });
+app.get("/", (req, res) => {
+  res.json({ result: "스앱" });
+});
 
 // app.get("/warning", (req, res) => {
 //   res.json({ warning: "Get Ok" });
