@@ -20,9 +20,20 @@ app.get("/", (req, res) => {
   res.json({ result: "스앱" });
 });
 
-// app.get("/warning", (req, res) => {
-//   res.json({ warning: "Get Ok" });
-// });
+var result = 0;
+app.get("/warning", (req, res) => {
+  if (result == 0) {
+    result = 1;
+    res.json({ warning: "Get Ok" });
+  }
+});
+
+app.get("/warning", (req, res) => {
+  if (result == 0) {
+    result = 1;
+    res.json({ warning: "Get Ok" });
+  }
+});
 
 app.get("/sensor", (req, res) => {
   const sql = "select * from sensor";
